@@ -19,16 +19,19 @@ abstract class BaseFragment<T : ViewBinding>(private val inflateMethod: (LayoutI
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflateMethod.invoke(inflater, container, false)
-        start()
-
         return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        start()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
-    abstract fun start()
+    open fun start() {}
 
 }

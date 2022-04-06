@@ -29,7 +29,6 @@ class RegFirstFragment : BaseFragment<FragmentRegFirstBinding>(FragmentRegFirstB
                 binding.expireDate.text.toString(),
                 binding.cvcCode.text.toString()
             )
-            Log.d("TAG1", "$userData")
             val action = RegFirstFragmentDirections.actionRegFirstFragmentToRegSecondFragment(userData)
 
             findNavController().navigate(action)
@@ -39,7 +38,6 @@ class RegFirstFragment : BaseFragment<FragmentRegFirstBinding>(FragmentRegFirstB
     private fun sendDataToViewModel(){
         binding.userId.addTextChangedListener {
             regViewModel.setUserId(it.toString())
-
         }
         binding.phoneNum.addTextChangedListener {
             regViewModel.setPhoneNum(it.toString())
@@ -103,14 +101,6 @@ class RegFirstFragment : BaseFragment<FragmentRegFirstBinding>(FragmentRegFirstB
         lifecycleScope.launch {
             regViewModel.isInputValid.collect {
                 binding.next.isEnabled = it
-                Log.d("Tag2", "btn $it")
-                Log.d("Tag2", "userId ${regViewModel.isUserIdValid}")
-                Log.d("Tag2", "pnone ${regViewModel.isPhoneNumValid}")
-                Log.d("Tag2", "first ${regViewModel.isFirstNumValid}")
-                Log.d("Tag2", "last ${regViewModel.isLastNumValid}")
-                Log.d("Tag2", "date ${regViewModel.isExpDateValid}")
-                Log.d("Tag2", "cvc ${regViewModel.isCvcValid}")
-                //wrap inputs in user data class
 
 
             }

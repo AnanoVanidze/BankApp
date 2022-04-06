@@ -24,7 +24,7 @@ class RegSecondFragment : BaseFragment<FragmentRegSecondBinding>(FragmentRegSeco
     private val args: RegSecondFragmentArgs by navArgs()
     private val reg2ViewModel: RegSecondVIewModel by viewModels()
     private lateinit var auth: FirebaseAuth
-    val db = Firebase.firestore
+    private val db = Firebase.firestore
 
     override fun start() {
         auth = FirebaseAuth.getInstance()

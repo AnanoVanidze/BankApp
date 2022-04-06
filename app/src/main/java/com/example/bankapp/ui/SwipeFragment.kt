@@ -14,9 +14,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class SwipeFragment : BaseFragment<FragmentSwipeBinding>(FragmentSwipeBinding::inflate) {
     private lateinit var viewPager:ViewPager2
     private lateinit var swipeAdapter: SwipeAdapter
-    override fun start() {
 
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
